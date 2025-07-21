@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安全管理系统</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-plus/dist/index.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.45/dist/vue.global.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/element-plus/dist/index.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+<div id="app">
+    <el-container style="height: 100vh;">
+        <!-- 登录界面 -->
+        <div v-if="!isAuthenticated" class="login-container">
+            <el-card class="login-card">
+                <h2 class="login-title">安全管理系统</h2>
+                <el-form :model="loginForm" :rules="loginRules" ref="loginFormRef">
+                    <el-form-item prop="username">
+                        <el-input v-model="loginForm.username" placeholder="用户名" prefix-icon="User"></el-input>
+                    </el-form-item>
+                    <el-form-item prop="password">
+                        <el-input v-model="loginForm.password" placeholder="密码" type="password" prefix-icon="Lock"
+                                  show-password></el-input>
+                    </el-form-item>
+                    <el-button type="primary" @click="handleLogin" style="width: 100%;">登录</el-button>
+                </el-form>
+            </el-card>
+        </div>
+
+        <!-- 主界面 -->
+        <div v-else class="main-container">
+            <el-header class="header">
+                <div class="header-left">
+                    <span class="system-name">安全管理系统</span>
+                </div>
+                <div class="header-right">
+                    <span class="user-info">欢迎, {{ currentUser.username }} ({{ currentUser.role }})</span>
+                    <el-button @click="handleLogout" type="text">退出</el-button>
+                </div>
+            </el-header>
+
+            <el-container>
+                <el-aside width="200px" class="sidebar">
+                    <el-menu :default-active="activeMenu" router>
+                        <el-menu-item index="dashboard">
+                            <i class="el-icon-menu"></i>
+                            <span>仪表盘</span>
+                        </el-menu-item>
+                        <el-menu-item index="encrypt" v-if="hasPermission('data', 'write')">
+                            <i class="el-icon-lock"></i>
+                            <span>数据加密</span>
+                        </el-menu-item>
+                        <el-menu-item index="permissions" v-if="hasPermission('permission', 'write')">
+                            <i class="el-icon-setting"></i>
+                            <span>权限管理</span>
+                        </el-menu-item>
+                    </el-menu>
+                </el-aside>
+
+                <el-main class="content">
+                    <router-view></router-view>
+                </el-main>
+            </el-container>
+        </div>
+    </el-container>
+</div>
+</body>
+</html>

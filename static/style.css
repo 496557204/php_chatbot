@@ -1,0 +1,113 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+    background-color: #f5f7fa;
+}
+
+#app {
+    height: 100%;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+}
+
+.login-card {
+    width: 400px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.login-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #303133;
+    font-weight: 500;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #001529;
+    color: #fff;
+    height: 60px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.system-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.user-info {
+    margin-right: 15px;
+}
+
+.sidebar {
+    background-color: #fff;
+    border-right: 1px solid #e8e8e8;
+    height: calc(100vh - 60px);
+}
+
+.content {
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+}
+
+.el-menu {
+    border-right: none;
+}
+
+.el-menu-item {
+    height: 56px;
+    line-height: 56px;
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.dashboard-card {
+    background: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #303133;
+}
+
+.encrypt-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.permission-table {
+    margin-top: 20px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    gap: 10px;
+}

@@ -1,0 +1,11 @@
+fastapi~=0.116.1
+uvicorn
+python-multipart
+python-jose[cryptography]
+passlib~=1.7.4
+mysql-connector-python~=9.3.0
+
+
+pydantic~=2.11.7
+jose~=1.0.0
+starlette~=0.47.1
