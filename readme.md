@@ -29,8 +29,6 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 
 
 # api文档查看：
-
-
-
+http://localhost:8000/docs
 
 
